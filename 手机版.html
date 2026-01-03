@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>🐴 马年新年红包</title>
+    <title>🐴 马年大吉</title>
     <style>
         * {
             margin: 0;
@@ -12,130 +12,387 @@
         }
 
         body {
-            font-family: 'Microsoft YaHei', 'SimHei', Arial, sans-serif;
-            background: linear-gradient(135deg, #8B0000 0%, #C8161D 100%);
+            font-family: 'Microsoft YaHei', 'SimHei', 'KaiTi', 'STKaiti', serif;
+            background: linear-gradient(135deg, #1a0000 0%, #4a0000 50%, #8B0000 100%);
             min-height: 100vh;
             overflow: hidden;
             position: relative;
+        }
+
+        /* 星光背景 */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #FFD700;
+            border-radius: 50%;
+            animation: twinkle 2s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.5);
+            }
         }
 
         .container {
             width: 100vw;
             height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             position: relative;
             overflow: hidden;
-        }
-
-        /* 红包主体 */
-        .red-packet {
-            width: 280px;
-            height: 380px;
-            position: relative;
-            cursor: pointer;
-            transition: transform 0.3s ease;
             z-index: 10;
-            -webkit-tap-highlight-color: transparent;
         }
 
-        .red-packet:active {
-            transform: scale(0.95);
+        /* 顶部祝福语 */
+        .top-greeting {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 15;
+            text-align: center;
         }
 
-        .red-packet.active {
-            animation: pulse 0.5s ease-in-out infinite;
+        .main-greeting {
+            font-size: 56px;
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 0 0 20px #FFD700, 0 0 40px #FFA500, 0 0 60px #FF8C00;
+            letter-spacing: 12px;
+            font-family: "STKaiti", "KaiTi", serif;
+            animation: glow 3s ease-in-out infinite;
         }
 
-        @keyframes pulse {
+        @keyframes glow {
             0%, 100% {
-                transform: scale(1);
+                text-shadow: 0 0 20px #FFD700, 0 0 40px #FFA500;
             }
             50% {
-                transform: scale(1.05);
+                text-shadow: 0 0 30px #FFD700, 0 0 60px #FFA500, 0 0 90px #FF8C00;
             }
         }
 
-        /* 红包上半部分 */
-        .packet-top {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(180deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
-            border-radius: 20px 20px 100px 100px;
+        /* 故宫风格大门 */
+        .gate-container {
             position: relative;
+            width: 400px;
+            height: 500px;
+            perspective: 1500px;
+            z-index: 20;
+        }
+
+        .gate-frame {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #8B0000 0%, #6B0000 50%, #4B0000 100%);
+            border-radius: 10px;
+            box-shadow:
+                0 10px 40px rgba(0, 0, 0, 0.7),
+                inset 0 2px 10px rgba(255, 215, 0, 0.2),
+                0 0 30px rgba(139, 0, 0, 0.5);
+            border: 8px solid #FFD700;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 金色装饰边框 */
+        .gate-frame::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border: 4px solid rgba(255, 215, 0, 0.6);
+            border-radius: 5px;
+        }
+
+        /* 门钉装饰 */
+        .door-nails {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .nail-row {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+
+        .nail {
+            width: 12px;
+            height: 12px;
+            background: radial-gradient(circle, #FFD700 0%, #B8860B 100%);
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            border: 2px solid #8B4513;
+        }
+
+        /* 左右门 */
+        .gate-door-left, .gate-door-right {
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background:
+                linear-gradient(90deg, #8B0000 0%, #6B0000 50%, #8B0000 100%);
+            transition: transform 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+            transform-origin: left center;
+            z-index: 6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-right: 6px solid #5a0000;
+        }
+
+        .gate-door-left {
+            left: 0;
+            transform: rotateY(0deg);
+        }
+
+        .gate-door-right {
+            right: 0;
+            transform-origin: right center;
+            transform: rotateY(0deg);
+            border-left: 6px solid #5a0000;
+            border-right: none;
+        }
+
+        /* 门打开状态 */
+        .gate-container.opened .gate-door-left {
+            transform: rotateY(-110deg);
+        }
+
+        .gate-container.opened .gate-door-right {
+            transform: rotateY(110deg);
+        }
+
+        /* 门上的装饰面板 */
+        .door-panel {
+            width: 85%;
+            height: 70%;
+            background: linear-gradient(135deg, #C8161D 0%, #A00000 100%);
+            border-radius: 8px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            border: 3px solid #FFD700;
+            box-shadow:
+                inset 0 2px 10px rgba(0, 0, 0, 0.3),
+                0 4px 15px rgba(0, 0, 0, 0.4);
+            border: 3px solid rgba(255, 215, 0, 0.4);
+            position: relative;
         }
 
-        .packet-top::before {
+        /* 铜制门环 */
+        .door-ring {
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, #FFD700 0%, #B8860B 70%, #8B4513 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow:
+                0 4px 8px rgba(0, 0, 0, 0.4),
+                inset 0 2px 4px rgba(255, 255, 255, 0.3);
+            border: 3px solid #8B4513;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .door-ring::before {
             content: '';
             position: absolute;
-            top: 10px;
-            left: 10px;
-            right: 10px;
-            bottom: 10px;
+            width: 30px;
+            height: 30px;
+            background: radial-gradient(circle, #FFD700 0%, #B8860B 100%);
+            border-radius: 50%;
             border: 2px solid #8B4513;
-            border-radius: 15px 15px 95px 95px;
-            background: linear-gradient(180deg, rgba(255, 215, 0, 0.3) 0%, rgba(255, 165, 0, 0.3) 100%);
         }
 
-        /* 红包文字 */
-        .main-text {
-            font-size: 42px;
-            font-weight: bold;
-            color: #8B0000;
-            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
-            margin-bottom: 10px;
-            letter-spacing: 4px;
-            z-index: 2;
-            font-family: "KaiTi", "STKaiti", serif;
-        }
-
-        .sub-text {
-            font-size: 20px;
-            color: #8B0000;
-            z-index: 2;
-            letter-spacing: 2px;
-            font-family: "KaiTi", "STKaiti", serif;
-        }
-
-        /* 红包下半部分 */
-        .packet-bottom {
-            width: 100%;
-            height: 130px;
-            background: linear-gradient(180deg, #C8161D 0%, #8B0000 100%);
-            border-radius: 15px 15px 20px 20px;
+        .door-ring-horizontal {
+            width: 40px;
+            height: 8px;
+            background: linear-gradient(180deg, #FFD700 0%, #B8860B 100%);
+            border-radius: 4px;
             position: absolute;
-            bottom: 0;
+            border: 1px solid #8B4513;
+        }
+
+        .click-hint {
+            font-size: 16px;
+            color: #FFD700;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 3px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        /* 门打开后的内容 */
+        .gate-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            border: 3px solid #FFD700;
-            overflow: hidden;
+            background:
+                radial-gradient(ellipse at center, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
+            opacity: 0;
+            transition: opacity 0.8s ease;
+            z-index: 1;
         }
 
-        /* 马的图案 */
-        .horse-icon {
-            font-size: 80px;
-            animation: horseShake 2s ease-in-out infinite;
+        .gate-container.opened .gate-content {
+            opacity: 1;
         }
 
-        @keyframes horseShake {
+        .content-icon {
+            font-size: 100px;
+            margin-bottom: 20px;
+            animation: bounce 1s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
             0%, 100% {
-                transform: rotate(-5deg);
+                transform: translateY(0);
             }
             50% {
-                transform: rotate(5deg);
+                transform: translateY(-20px);
             }
         }
 
-        /* 动画容器 */
+        .content-text {
+            font-size: 32px;
+            color: #8B0000;
+            font-weight: bold;
+            letter-spacing: 8px;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+            font-family: "STKaiti", "KaiTi", serif;
+        }
+
+        /* 音乐控制按钮 */
+        .music-control {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 215, 0, 0.2);
+            border: 2px solid #FFD700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 100;
+            transition: all 0.3s ease;
+            animation: musicPulse 2s ease-in-out infinite;
+        }
+
+        .music-control:hover {
+            background: rgba(255, 215, 0, 0.4);
+            transform: scale(1.1);
+        }
+
+        @keyframes musicPulse {
+            0%, 100% {
+                box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+            }
+        }
+
+        .music-icon {
+            font-size: 24px;
+        }
+
+        /* 烟花效果 */
+        .firework {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        .firework-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            animation: explode 1.5s ease-out forwards;
+        }
+
+        @keyframes explode {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--tx), var(--ty)) scale(0);
+            }
+        }
+
+        /* 闪光效果 */
+        .sparkle {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, #FFD700 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 100;
+            animation: sparkle 1s ease-out forwards;
+        }
+
+        @keyframes sparkle {
+            0% {
+                opacity: 1;
+                transform: scale(0) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(2) rotate(180deg);
+            }
+        }
+
+        /* 成语动画容器 */
         .animation-container {
             position: fixed;
             top: 0;
@@ -143,281 +400,553 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 5;
+            z-index: 50;
         }
 
         /* 浮动元素 */
         .floating-item {
             position: absolute;
-            animation: floatUp 3s ease-out forwards;
+            animation: zoomIn 2.5s ease-out forwards;
             font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(255, 215, 0, 0.8);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.5);
             white-space: nowrap;
+            z-index: 50;
         }
 
-        @keyframes floatUp {
+        @keyframes zoomIn {
             0% {
+                opacity: 0;
+                transform: scale(0.1);
+                filter: blur(5px);
+            }
+            20% {
                 opacity: 1;
-                transform: translateY(0) rotate(0deg) scale(0.5);
+                filter: blur(0px);
             }
             50% {
                 opacity: 1;
-                transform: translateY(-50vh) rotate(180deg) scale(1);
+                transform: scale(1.3);
+            }
+            80% {
+                opacity: 0.8;
+                transform: scale(1);
             }
             100% {
                 opacity: 0;
-                transform: translateY(-100vh) rotate(360deg) scale(1.2);
+                transform: scale(0.8);
             }
-        }
-
-        .floating-image {
-            width: 60px;
-            height: 60px;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
         }
 
         .floating-text {
             font-size: 24px;
+            font-family: "STKaiti", "KaiTi", serif;
+        }
+
+        .floating-text.long {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .floating-image {
+            font-size: 50px;
         }
 
         /* 提示文字 */
         .tip {
             position: absolute;
-            bottom: 20px;
+            bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
             color: #FFD700;
-            font-size: 14px;
+            font-size: 16px;
             text-align: center;
-            z-index: 1;
-            opacity: 0.8;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            z-index: 15;
+            opacity: 0.9;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+            letter-spacing: 2px;
+            font-family: "STKaiti", "KaiTi", serif;
         }
 
         /* 响应式调整 */
         @media (max-width: 375px) {
-            .red-packet {
-                width: 240px;
-                height: 320px;
+            .main-greeting {
+                font-size: 40px;
             }
 
-            .packet-top {
-                height: 200px;
+            .gate-container {
+                width: 300px;
+                height: 400px;
             }
 
-            .main-text {
-                font-size: 36px;
+            .door-panel {
+                width: 90%;
             }
 
-            .sub-text {
-                font-size: 18px;
+            .content-icon {
+                font-size: 80px;
             }
 
-            .packet-bottom {
-                height: 120px;
+            .content-text {
+                font-size: 24px;
             }
 
-            .horse-icon {
-                font-size: 70px;
+            .floating-text {
+                font-size: 20px;
+            }
+
+            .floating-text.long {
+                font-size: 16px;
             }
         }
 
         @media (min-width: 768px) {
-            .red-packet {
-                width: 350px;
-                height: 450px;
+            .main-greeting {
+                font-size: 64px;
             }
 
-            .packet-top {
-                height: 300px;
-                border-radius: 25px 25px 130px 130px;
+            .gate-container {
+                width: 500px;
+                height: 600px;
             }
 
-            .main-text {
-                font-size: 52px;
+            .content-icon {
+                font-size: 120px;
             }
 
-            .sub-text {
-                font-size: 24px;
+            .content-text {
+                font-size: 36px;
             }
 
-            .packet-bottom {
-                height: 150px;
+            .floating-text {
+                font-size: 28px;
             }
 
-            .horse-icon {
-                font-size: 100px;
+            .floating-text.long {
+                font-size: 20px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- 星光背景 -->
+    <div class="stars" id="stars"></div>
+
+    <!-- 音乐控制 -->
+    <div class="music-control" id="musicControl" title="点击播放/暂停音乐">
+        <div class="music-icon">🎵</div>
+    </div>
+
+    <!-- 背景音乐 - 使用Data URI嵌入简短的音乐 -->
+    <audio id="bgMusic" loop>
+        <source src="data:audio/mp3;base64,SUQzBAAAAAAAI1RTSVAAAAAAAABQAAADTE5NRUsAAAAyAAAADGFyZXBuYW1lIGRhdHJTZWUAAAABBAAAAEaWRhcCBhdW1wYWRhAAAAQwAAAAAAAABhbG9jYXQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//uQZAAAAAAAASWFmMwAAABhEAAMAAAAgAA0AAIAAAARAAEAAAAAAAAAAAAAAExhdmM1OC4wMgAAAAAAAAAAAAAAAFhdmMzLjU4ljJtMWRmYmEznJmbZ2ZmhJmmeZqZ" type="audio/mpeg">
+    </audio>
+
     <div class="container">
-        <!-- 主红包按钮 -->
-        <div class="red-packet" id="redPacket">
-            <div class="packet-top">
-                <div class="main-text">马年红包</div>
-                <div class="sub-text">点击开启</div>
-            </div>
-            <div class="packet-bottom">
-                <div class="horse-icon">🐴</div>
+        <!-- 顶部祝福语 -->
+        <div class="top-greeting">
+            <div class="main-greeting">马年大吉</div>
+        </div>
+
+        <!-- 故宫风格大门 -->
+        <div class="gate-container" id="gateContainer">
+            <div class="gate-frame">
+                <!-- 门钉装饰 -->
+                <div class="door-nails" id="doorNails"></div>
+
+                <!-- 左门 -->
+                <div class="gate-door-left">
+                    <div class="door-panel">
+                        <div class="door-ring">
+                            <div class="door-ring-horizontal"></div>
+                        </div>
+                        <div class="click-hint">点击开启</div>
+                    </div>
+                </div>
+
+                <!-- 右门 -->
+                <div class="gate-door-right">
+                    <div class="door-panel">
+                        <div class="door-ring">
+                            <div class="door-ring-horizontal"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 门打开后显示的内容 -->
+                <div class="gate-content">
+                    <div class="content-icon">🎊</div>
+                    <div class="content-text">恭喜发财</div>
+                </div>
             </div>
         </div>
 
-        <!-- 动画容器 -->
+        <!-- 成语动画容器 -->
         <div class="animation-container" id="animationContainer"></div>
 
         <!-- 提示文字 -->
-        <div class="tip">再次点击红包即可停止动画</div>
+        <div class="tip" id="tip">点击大门开启新年祝福</div>
     </div>
 
     <script>
-        // 马字成语列表
+        // 成语列表
         const horseIdioms = [
-            '马到成功', '一马当先', '龙马精神', '马年大吉',
-            '万马奔腾', '马不停蹄', '千里马', '快马加鞭',
-            '马到功成', '金戈铁马', '车水马龙', '马首是瞻',
-            '招财进宝', '恭喜发财', '大吉大利', '五福临门',
-            '年年有余', '财源广进', '心想事成', '万事如意'
+            '马到成功', '龙马精神', '一马当先', '万马奔腾',
+            '快马加鞭', '跃马扬鞭', '龙神马壮', '鲜衣怒马',
+            '宝马香车', '驷马高车', '策马奔腾', '骏马迎春',
+            '祥马报喜', '金马送福',
+            '新年策马，万事顺意',
+            '龙马启新岁，平安伴整年',
+            '一马当先开锦绣，三阳开泰贺新春',
+            '万马奔腾新气象，阖家欢乐福满堂',
+            '骏马踏春来，财源滚滚至',
+            '祥马迎福，岁岁安康',
+            '策马赴新程，前程皆似锦',
+            '金马纳祥瑞，新年行大运',
+            '马上有财',
+            '马上有闲',
+            '马上躺赢一整年'
         ];
 
-        // 吉祥图片(使用emoji)
         const auspiciousImages = [
-            '🏮', // 灯笼
-            '💰', // 金币
-            '🪷', // 元宝
-            '🧨', // 鞭炮
-            '🍑', // 寿桃
-            '🐟', // 鱼
-            '🎊', // 彩带
-            '🎉', // 庆祝
-            '🧧', // 红包
-            '⭐'  // 星星
+            '🏮', '💰', '🪷', '🧨', '🍑', '🐟', '🎊', '🎉', '🧧', '⭐', '🐴', '🌟'
         ];
 
-        // 颜色列表
         const colors = [
             '#FFD700', '#FFA500', '#FF6347', '#FF4500',
-            '#DC143C', '#B22222', '#FF1493', '#FF69B4'
+            '#DC143C', '#B22222', '#FF1493', '#FF69B4',
+            '#FFE4B5', '#FFA07A'
         ];
 
-        let isAnimating = false;
+        let isOpened = false;
         let animationTimer = null;
+        let isMusicPlaying = false;
 
-        const redPacket = document.getElementById('redPacket');
+        const gateContainer = document.getElementById('gateContainer');
         const animationContainer = document.getElementById('animationContainer');
+        const tip = document.getElementById('tip');
+        const bgMusic = document.getElementById('bgMusic');
+        const musicControl = document.getElementById('musicControl');
 
-        // 切换动画状态
-        redPacket.addEventListener('click', function() {
-            if (isAnimating) {
-                stopAnimation();
+        // 使用Web Audio API生成柔和的新春音乐
+        let audioContext = null;
+        let oscillator = null;
+        let gainNode = null;
+
+        function initAudio() {
+            if (!audioContext) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            }
+        }
+
+        function playFestiveMusic() {
+            initAudio();
+
+            // 创建增益节点控制音量
+            gainNode = audioContext.createGain();
+            gainNode.gain.value = 0.1; // 柔和的音量
+            gainNode.connect(audioContext.destination);
+
+            // 播放音符序列
+            const notes = [
+                { freq: 523.25, duration: 0.3 }, // C5
+                { freq: 587.33, duration: 0.3 }, // D5
+                { freq: 659.25, duration: 0.3 }, // E5
+                { freq: 783.99, duration: 0.5 }, // G5
+                { freq: 659.25, duration: 0.3 }, // E5
+                { freq: 587.33, duration: 0.3 }, // D5
+                { freq: 523.25, duration: 0.5 }, // C5
+                { freq: 392.00, duration: 0.4 }, // G4
+                { freq: 440.00, duration: 0.4 }, // A4
+                { freq: 493.88, duration: 0.4 }, // B4
+                { freq: 523.25, duration: 0.8 }, // C5
+            ];
+
+            let currentTime = audioContext.currentTime;
+            notes.forEach((note, index) => {
+                const osc = audioContext.createOscillator();
+                const noteGain = audioContext.createGain();
+
+                osc.type = 'sine'; // 正弦波,柔和
+                osc.frequency.value = note.freq;
+
+                noteGain.gain.setValueAtTime(0.1, currentTime);
+                noteGain.gain.exponentialRampToValueAtTime(0.01, currentTime + note.duration);
+
+                osc.connect(noteGain);
+                noteGain.connect(gainNode);
+
+                osc.start(currentTime);
+                osc.stop(currentTime + note.duration);
+
+                currentTime += note.duration;
+            });
+
+            // 循环播放
+            const totalDuration = notes.reduce((sum, note) => sum + note.duration, 0);
+            setTimeout(() => {
+                if (isMusicPlaying) {
+                    playFestiveMusic();
+                }
+            }, totalDuration * 1000);
+        }
+
+        function stopMusic() {
+            if (gainNode) {
+                gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.5);
+            }
+        }
+
+        // 音乐控制
+        musicControl.addEventListener('click', function() {
+            if (!isMusicPlaying) {
+                isMusicPlaying = true;
+                musicControl.innerHTML = '<div class="music-icon">🎶</div>';
+                playFestiveMusic();
             } else {
-                startAnimation();
+                isMusicPlaying = false;
+                musicControl.innerHTML = '<div class="music-icon">🎵</div>';
+                stopMusic();
             }
         });
 
         // 触摸支持
-        redPacket.addEventListener('touchstart', function(e) {
+        musicControl.addEventListener('touchstart', function(e) {
             e.preventDefault();
-            if (isAnimating) {
-                stopAnimation();
+            this.click();
+        });
+
+        // 创建星光背景
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 50; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 2 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // 创建门钉装饰
+        function createDoorNails() {
+            const doorNails = document.getElementById('doorNails');
+            // 每行9个钉子,共5行
+            for (let row = 0; row < 5; row++) {
+                const nailRow = document.createElement('div');
+                nailRow.className = 'nail-row';
+                for (let col = 0; col < 9; col++) {
+                    const nail = document.createElement('div');
+                    nail.className = 'nail';
+                    nailRow.appendChild(nail);
+                }
+                doorNails.appendChild(nailRow);
+            }
+        }
+
+        // 创建烟花效果
+        function createFirework(x, y) {
+            const firework = document.createElement('div');
+            firework.className = 'firework';
+            firework.style.left = x + 'px';
+            firework.style.top = y + 'px';
+
+            const colors = ['#FFD700', '#FF6347', '#FF4500', '#FF69B4', '#00CED1'];
+            const particleCount = 20;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'firework-particle';
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+
+                const angle = (i / particleCount) * 360;
+                const distance = 50 + Math.random() * 50;
+                const tx = Math.cos(angle * Math.PI / 180) * distance;
+                const ty = Math.sin(angle * Math.PI / 180) * distance;
+
+                particle.style.setProperty('--tx', tx + 'px');
+                particle.style.setProperty('--ty', ty + 'px');
+
+                firework.appendChild(particle);
+            }
+
+            document.body.appendChild(firework);
+
+            setTimeout(() => {
+                if (firework.parentNode) {
+                    firework.parentNode.removeChild(firework);
+                }
+            }, 1500);
+        }
+
+        // 创建闪光效果
+        function createSparkle(x, y) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = (x - 10) + 'px';
+            sparkle.style.top = (y - 10) + 'px';
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => {
+                if (sparkle.parentNode) {
+                    sparkle.parentNode.removeChild(sparkle);
+                }
+            }, 1000);
+        }
+
+        // 点击开门
+        gateContainer.addEventListener('click', function(e) {
+            if (!isOpened) {
+                openGate();
             } else {
-                startAnimation();
+                closeGate();
             }
         });
 
-        // 开始动画
-        function startAnimation() {
-            isAnimating = true;
-            redPacket.classList.add('active');
+        // 触摸支持
+        gateContainer.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            if (!isOpened) {
+                openGate();
+            } else {
+                closeGate();
+            }
+        });
 
-            // 每隔300ms生成一个新的动画元素
-            animationTimer = setInterval(createAnimationItem, 300);
+        function openGate() {
+            isOpened = true;
+            gateContainer.classList.add('opened');
+            tip.textContent = '再次点击关闭';
+
+            // 自动播放音乐
+            if (!isMusicPlaying) {
+                isMusicPlaying = true;
+                musicControl.innerHTML = '<div class="music-icon">🎶</div>';
+                playFestiveMusic();
+            }
+
+            // 创建多个烟花效果
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    const x = Math.random() * window.innerWidth;
+                    const y = Math.random() * (window.innerHeight / 2);
+                    createFirework(x, y);
+                }, i * 300);
+            }
+
+            // 开始成语动画
+            setTimeout(() => {
+                startAnimation();
+            }, 500);
         }
 
-        // 停止动画
-        function stopAnimation() {
-            isAnimating = false;
-            redPacket.classList.remove('active');
+        function closeGate() {
+            isOpened = false;
+            gateContainer.classList.remove('opened');
+            tip.textContent = '点击大门开启新年祝福';
+            stopAnimation();
+        }
 
+        function startAnimation() {
+            animationTimer = setInterval(() => {
+                createAnimationItem();
+
+                if (Math.random() > 0.5) {
+                    const x = Math.random() * window.innerWidth;
+                    const y = Math.random() * window.innerHeight;
+                    createSparkle(x, y);
+                }
+
+                if (Math.random() > 0.85) {
+                    const x = Math.random() * window.innerWidth;
+                    const y = Math.random() * (window.innerHeight / 2);
+                    createFirework(x, y);
+                }
+            }, 400);
+        }
+
+        function stopAnimation() {
             if (animationTimer) {
                 clearInterval(animationTimer);
                 animationTimer = null;
             }
-
-            // 清空动画容器
             animationContainer.innerHTML = '';
         }
 
-        // 创建动画元素
         function createAnimationItem() {
             const screenWidth = window.innerWidth;
             const screenHeight = window.innerHeight;
 
-            // 随机选择类型(图片或文字)
-            const type = Math.random() > 0.4 ? 'text' : 'image';
+            const type = Math.random() > 0.35 ? 'text' : 'image';
             let element;
 
             if (type === 'text') {
-                // 随机选择成语
                 const randomIndex = Math.floor(Math.random() * horseIdioms.length);
                 const text = horseIdioms[randomIndex];
 
                 element = document.createElement('div');
                 element.className = 'floating-item floating-text';
+
+                if (text.length > 6) {
+                    element.classList.add('long');
+                }
+
                 element.textContent = text;
 
-                // 随机颜色
                 const colorIndex = Math.floor(Math.random() * colors.length);
                 element.style.color = colors[colorIndex];
 
-                // 随机字体大小
-                const fontSize = Math.floor(Math.random() * 12) + 20; // 20-32px
+                const baseFontSize = text.length > 6 ? 16 : 20;
+                const fontSize = Math.floor(Math.random() * 8) + baseFontSize;
                 element.style.fontSize = fontSize + 'px';
             } else {
-                // 随机选择图片
                 const randomIndex = Math.floor(Math.random() * auspiciousImages.length);
                 const image = auspiciousImages[randomIndex];
 
                 element = document.createElement('div');
-                element.className = 'floating-item';
+                element.className = 'floating-item floating-image';
                 element.textContent = image;
-                element.style.fontSize = '50px';
             }
 
-            // 随机位置(从底部随机位置出现)
-            const x = Math.random() * (screenWidth - 80);
-            const y = screenHeight - 200;
+            const x = Math.random() * (screenWidth - 100);
+            const y = Math.random() * (screenHeight - 200) + 50;
 
             element.style.left = x + 'px';
             element.style.top = y + 'px';
 
-            // 随机动画时长
-            const duration = Math.random() * 2 + 2; // 2-4秒
+            const duration = Math.random() * 1.5 + 2;
             element.style.animationDuration = duration + 's';
 
-            // 添加到容器
             animationContainer.appendChild(element);
 
-            // 动画结束后移除元素
-            setTimeout(function() {
+            setTimeout(() => {
                 if (element.parentNode) {
                     element.parentNode.removeChild(element);
                 }
             }, duration * 1000);
         }
 
-        // 页面可见性变化时暂停/恢复
+        // 页面加载时初始化
+        createStars();
+        createDoorNails();
+
+        // 页面可见性变化
         document.addEventListener('visibilitychange', function() {
-            if (document.hidden && isAnimating) {
-                // 页面隐藏时暂停
-                if (animationTimer) {
+            if (document.hidden) {
+                if (isMusicPlaying) {
+                    stopMusic();
+                }
+                if (isOpened && animationTimer) {
                     clearInterval(animationTimer);
                     animationTimer = null;
                 }
-            } else if (!document.hidden && isAnimating) {
-                // 页面显示时恢复
-                animationTimer = setInterval(createAnimationItem, 300);
+            } else {
+                if (isOpened) {
+                    if (isMusicPlaying) {
+                        playFestiveMusic();
+                    }
+                    startAnimation();
+                }
             }
         });
     </script>

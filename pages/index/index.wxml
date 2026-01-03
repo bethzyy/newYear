@@ -1,5 +1,10 @@
 <!--pages/index/index.wxml-->
 <view class="container">
+  <!-- 顶部祝福语 -->
+  <view class="top-greeting">
+    <text class="main-greeting">马年大吉</text>
+  </view>
+
   <!-- 主红包按钮 -->
   <view class="red-packet {{isAnimating ? 'active' : ''}}" bindtap="toggleAnimation">
     <view class="packet-top">
@@ -14,12 +19,12 @@
   <!-- 动画容器 -->
   <view class="animation-container">
     <block wx:for="{{animationItems}}" wx:key="id">
-      <view class="floating-item" style="left: {{item.x}}px; top: {{item.y}}px; animation: floatUp {{item.duration}}s ease-out forwards;">
+      <view class="floating-item" style="left: {{item.x}}px; top: {{item.y}}px; animation: zoomIn {{item.duration}}s ease-out forwards;">
         <block wx:if="{{item.type === 'image'}}">
           <image class="item-image" src="{{item.content}}" mode="aspectFit"></image>
         </block>
         <block wx:else>
-          <text class="item-text" style="color: {{item.color}}; font-size: {{item.fontSize}}rpx;">{{item.content}}</text>
+          <text class="item-text {{item.length > 6 ? 'long' : ''}}" style="color: {{item.color}}; font-size: {{item.fontSize}}rpx;">{{item.content}}</text>
         </block>
       </view>
     </block>
