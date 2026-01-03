@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="fishGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FF4757;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF3838;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="finGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- 鱼尾 -->
+  <path d="M 95 60 Q 115 45 110 60 Q 115 75 95 60" fill="url(#finGrad)" stroke="#8B4513" stroke-width="2"/>
+
+  <!-- 鱼身 -->
+  <ellipse cx="55" cy="60" rx="45" ry="30" fill="url(#fishGrad)" stroke="#C71585" stroke-width="2"/>
+
+  <!-- 鱼头 -->
+  <ellipse cx="20" cy="60" rx="20" ry="22" fill="url(#fishGrad)" stroke="#C71585" stroke-width="2"/>
+
+  <!-- 鱼眼 -->
+  <circle cx="12" cy="52" r="6" fill="white" stroke="#C71585" stroke-width="1.5"/>
+  <circle cx="13" cy="51" r="3" fill="black"/>
+
+  <!-- 鱼嘴 -->
+  <ellipse cx="5" cy="62" rx="4" ry="3" fill="#FF69B4" stroke="#C71585" stroke-width="1"/>
+
+  <!-- 鱼鳞 -->
+  <g stroke="#FFD700" stroke-width="1.5" fill="none" opacity="0.7">
+    <path d="M 25 50 Q 35 55 25 60"/>
+    <path d="M 35 50 Q 45 55 35 60"/>
+    <path d="M 45 50 Q 55 55 45 60"/>
+    <path d="M 55 50 Q 65 55 55 60"/>
+    <path d="M 65 50 Q 75 55 65 60"/>
+    <path d="M 75 50 Q 85 55 75 60"/>
+
+    <path d="M 25 60 Q 35 65 25 70"/>
+    <path d="M 35 60 Q 45 65 35 70"/>
+    <path d="M 45 60 Q 55 65 45 70"/>
+    <path d="M 55 60 Q 65 65 55 70"/>
+    <path d="M 65 60 Q 75 65 65 70"/>
+    <path d="M 75 60 Q 85 65 75 70"/>
+  </g>
+
+  <!-- 背鳍 -->
+  <path d="M 50 30 Q 55 20 60 30 Q 65 20 70 30" fill="url(#finGrad)" stroke="#8B4513" stroke-width="2"/>
+
+  <!-- 胸鳍 -->
+  <ellipse cx="30" cy="80" rx="10" ry="6" fill="url(#finGrad)" stroke="#8B4513" stroke-width="1.5" transform="rotate(-20 30 80)"/>
+
+  <!-- 腹鳍 -->
+  <ellipse cx="65" cy="82" rx="8" ry="5" fill="url(#finGrad)" stroke="#8B4513" stroke-width="1.5" transform="rotate(15 65 82)"/>
+
+  <!-- 鱼鳃 -->
+  <path d="M 30 48 Q 35 60 30 72" stroke="#FFD700" stroke-width="2" fill="none" opacity="0.8"/>
+  <path d="M 33 48 Q 38 60 33 72" stroke="#FFD700" stroke-width="1.5" fill="none" opacity="0.6"/>
+
+  <!-- 高光 -->
+  <ellipse cx="45" cy="50" rx="8" ry="4" fill="white" opacity="0.4"/>
+</svg>

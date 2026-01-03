@@ -7,7 +7,7 @@
       <text class="sub-text">点击开启</text>
     </view>
     <view class="packet-bottom">
-      <image class="horse-icon" src="/images/horse.png" mode="aspectFit"></image>
+      <image class="horse-icon" src="/images/horse.svg" mode="aspectFit"></image>
     </view>
   </view>
 

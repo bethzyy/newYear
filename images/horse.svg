@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- 背景圆 -->
+  <circle cx="100" cy="100" r="90" fill="url(#goldGrad)" stroke="#8B4513" stroke-width="3"/>
+
+  <!-- 马的简化图案 -->
+  <g transform="translate(50, 40) scale(0.6)">
+    <!-- 马头 -->
+    <ellipse cx="100" cy="80" rx="35" ry="45" fill="#8B0000" stroke="#FFD700" stroke-width="3"/>
+
+    <!-- 马耳朵 -->
+    <polygon points="75,45 85,25 95,45" fill="#8B0000" stroke="#FFD700" stroke-width="2"/>
+    <polygon points="105,45 115,25 125,45" fill="#8B0000" stroke="#FFD700" stroke-width="2"/>
+
+    <!-- 马眼 -->
+    <circle cx="85" cy="75" r="8" fill="#FFD700"/>
+    <circle cx="115" cy="75" r="8" fill="#FFD700"/>
+    <circle cx="87" cy="73" r="3" fill="#000"/>
+    <circle cx="117" cy="73" r="3" fill="#000"/>
+
+    <!-- 马鼻子 -->
+    <ellipse cx="100" cy="105" rx="15" ry="12" fill="#A52A2A" stroke="#FFD700" stroke-width="2"/>
+    <circle cx="92" cy="105" r="3" fill="#000"/>
+    <circle cx="108" cy="105" r="3" fill="#000"/>
+
+    <!-- 马鬃 -->
+    <path d="M 70 60 Q 60 70 65 85 Q 60 100 70 110" stroke="#FFD700" stroke-width="4" fill="none"/>
+    <path d="M 80 55 Q 70 65 75 80 Q 70 95 80 105" stroke="#FFD700" stroke-width="4" fill="none"/>
+    <path d="M 90 52 Q 80 62 85 77 Q 80 92 90 102" stroke="#FFD700" stroke-width="4" fill="none"/>
+
+    <!-- 马脖子 -->
+    <rect x="90" y="115" width="20" height="60" rx="5" fill="#8B0000" stroke="#FFD700" stroke-width="2"/>
+
+    <!-- 马身 -->
+    <ellipse cx="120" cy="160" rx="55" ry="40" fill="#8B0000" stroke="#FFD700" stroke-width="3"/>
+
+    <!-- 马腿 -->
+    <rect x="80" y="185" width="15" height="50" rx="5" fill="#8B0000" stroke="#FFD700" stroke-width="2"/>
+    <rect x="105" y="190" width="15" height="45" rx="5" fill="#8B0000" stroke="#FFD700" stroke-width="2"/>
+    <rect x="140" y="190" width="15" height="45" rx="5" fill="#8B0000" stroke="#FFD700" stroke-width="2"/>
+    <rect x="160" y="185" width="15" height="50" rx="5" fill="#8B0000" stroke="#FFD700" stroke-width="2"/>
+
+    <!-- 马蹄 -->
+    <ellipse cx="87" cy="235" rx="10" ry="5" fill="#FFD700" stroke="#8B4513" stroke-width="2"/>
+    <ellipse cx="112" cy="235" rx="10" ry="5" fill="#FFD700" stroke="#8B4513" stroke-width="2"/>
+    <ellipse cx="147" cy="235" rx="10" ry="5" fill="#FFD700" stroke="#8B4513" stroke-width="2"/>
+    <ellipse cx="167" cy="235" rx="10" ry="5" fill="#FFD700" stroke="#8B4513" stroke-width="2"/>
+
+    <!-- 马尾 -->
+    <path d="M 175 150 Q 195 140 190 170 Q 200 200 185 220" stroke="#FFD700" stroke-width="4" fill="none"/>
+    <path d="M 178 155 Q 198 145 193 175 Q 203 205 188 225" stroke="#FFD700" stroke-width="3" fill="none"/>
+  </g>
+
+  <!-- 马字 -->
+  <text x="100" y="190" font-size="28" font-weight="bold" fill="#8B0000" text-anchor="middle" font-family="KaiTi, STKaiti, serif">马</text>
+</svg>

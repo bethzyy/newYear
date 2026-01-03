@@ -15,14 +15,14 @@ Page({
     '五福临门', '年年有余', '财源广进', '心想事成'
   ],
 
-  // 图片资源路径
+  // 图片资源路径(使用SVG格式,微信小程序支持)
   auspiciousImages: [
-    '/images/lantern.png',
-    '/images/coin.png',
-    '/images/ingot.png',
-    '/images/firecracker.png',
-    '/images/peach.png',
-    '/images/fish.png'
+    '/images/lantern.svg',
+    '/images/coin.svg',
+    '/images/ingot.svg',
+    '/images/firecracker.svg',
+    '/images/peach.svg',
+    '/images/fish.svg'
   ],
 
   // 颜色列表

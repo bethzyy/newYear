@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF0000;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#CC0000;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- 提绳 -->
+  <line x1="60" y1="0" x2="60" y2="20" stroke="#FFD700" stroke-width="3"/>
+
+  <!-- 灯笼主体 -->
+  <ellipse cx="60" cy="60" rx="35" ry="40" fill="url(#redGrad)" stroke="#FFD700" stroke-width="2"/>
+
+  <!-- 灯笼骨架 -->
+  <line x1="25" y1="30" x2="95" y2="30" stroke="#FFD700" stroke-width="1.5" opacity="0.6"/>
+  <line x1="25" y1="45" x2="95" y2="45" stroke="#FFD700" stroke-width="1.5" opacity="0.6"/>
+  <line x1="25" y1="60" x2="95" y2="60" stroke="#FFD700" stroke-width="1.5" opacity="0.6"/>
+  <line x1="25" y1="75" x2="95" y2="75" stroke="#FFD700" stroke-width="1.5" opacity="0.6"/>
+  <line x1="25" y1="90" x2="95" y2="90" stroke="#FFD700" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- 福字 -->
+  <text x="60" y="68" font-size="32" font-weight="bold" fill="#FFD700" text-anchor="middle" font-family="KaiTi, STKaiti, serif">福</text>
+
+  <!-- 顶部装饰 -->
+  <rect x="45" y="18" width="30" height="6" rx="3" fill="#FFD700" stroke="#8B4513" stroke-width="1"/>
+
+  <!-- 底部装饰 -->
+  <rect x="45" y="96" width="30" height="6" rx="3" fill="#FFD700" stroke="#8B4513" stroke-width="1"/>
+
+  <!-- 底部流苏 -->
+  <line x1="60" y1="102" x2="60" y2="120" stroke="#FFD700" stroke-width="2"/>
+  <line x1="55" y1="102" x2="50" y2="118" stroke="#FFD700" stroke-width="1.5"/>
+  <line x1="65" y1="102" x2="70" y2="118" stroke="#FFD700" stroke-width="1.5"/>
+  <line x1="52" y1="102" x2="45" y2="115" stroke="#FFD700" stroke-width="1.5"/>
+  <line x1="68" y1="102" x2="75" y2="115" stroke="#FFD700" stroke-width="1.5"/>
+</svg>
