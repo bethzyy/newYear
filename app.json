@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#C8161D",
+    "navigationBarTitleText": "马年红包",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#8B0000"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

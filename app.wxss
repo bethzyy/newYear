@@ -1,0 +1,6 @@
+/**app.wxss**/
+page {
+  background: linear-gradient(135deg, #8B0000 0%, #C8161D 100%);
+  height: 100vh;
+  overflow: hidden;
+}

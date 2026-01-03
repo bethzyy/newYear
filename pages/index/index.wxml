@@ -1,0 +1,27 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <!-- 主红包按钮 -->
+  <view class="red-packet {{isAnimating ? 'active' : ''}}" bindtap="toggleAnimation">
+    <view class="packet-top">
+      <text class="main-text">马年红包</text>
+      <text class="sub-text">点击开启</text>
+    </view>
+    <view class="packet-bottom">
+      <image class="horse-icon" src="/images/horse.png" mode="aspectFit"></image>
+    </view>
+  </view>
+
+  <!-- 动画容器 -->
+  <view class="animation-container">
+    <block wx:for="{{animationItems}}" wx:key="id">
+      <view class="floating-item" style="left: {{item.x}}px; top: {{item.y}}px; animation: floatUp {{item.duration}}s ease-out forwards;">
+        <block wx:if="{{item.type === 'image'}}">
+          <image class="item-image" src="{{item.content}}" mode="aspectFit"></image>
+        </block>
+        <block wx:else>
+          <text class="item-text" style="color: {{item.color}}; font-size: {{item.fontSize}}rpx;">{{item.content}}</text>
+        </block>
+      </view>
+    </block>
+  </view>
+</view>
