@@ -1,41 +1,48 @@
-# 忽略可执行文件
-*.exe
-*.app
-*.out
+# Environment & secrets
+.env
+.env.*
+!.env.example
+!.env.production.example
 
 # Python
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
-.Python
+.venv/
 venv/
 env/
-.venv
+*.egg-info/
+dist/
+build/
 
-# Node.js
+# Node
 node_modules/
-npm-debug.log*
 
-# 日志文件
-*.log
-logs/
-
-# 临时文件
-*.tmp
-*.bak
+# IDE
+.idea/
+.vscode/
 *.swp
-*~
+*.swo
+
+# OS
 .DS_Store
 Thumbs.db
 
-# IDE
-.vscode/
-.idea/
+# Logs
+*.log
+
+# Debug
+*.pyc
+*.exe
+*.app
+*.out
+.Python
+npm-debug.log*
+logs/
+*.tmp
+*.bak
+*~
 *.suo
 *.user
-
-# 构建产物
-dist/
-build/
 *.spec
